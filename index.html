@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the US</title>
+    <meta name="explore around US" content="places around US" />
+    <meta name="author" content="Paola Gomez" />
+    <meta name="keywords" content="Exploring US places" />
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="header__logo">
+        <img src="/images/Vector.svg" class="page__logo" alt="logo" />
+      </div>
+      <div class="header__line"></div>
+    </header>
+    <main class="content">
+      <section>
+        <div class="profile__content">
+          <img
+            class="profile__picture"
+            src="images/Avatar.png"
+            alt="imagen perfil"
+          />
+          <div class="profile__info">
+            <h2 class="profile__info-name">Jacques Cousteau</h2>
+            <h3 class="profile__info-career">Explorador</h3>
+          </div>
+          <div class="profile__edit">
+            <button class="profile__edit-button" type="button">
+              <img alt="edit button" src="/images/EditButton.png" />
+            </button>
+          </div>
+          <div class="profile__add">
+            <button class="profile__add-button" type="submit">
+              <img
+                src="/images/addbutton.png"
+                alt="add button"
+                class="profile__add-vector"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="elements">
+          <div class="element__content">
+            <img
+              src="./images/ValleYosemite.jpg"
+              class="element__grid"
+              alt="imagen
+          de Valle de Yosemite"
+            />
+            <h2 class="element__name">
+              Valle de Yosemite
+              <img
+                class="element__like"
+                src="./images/Group.png"
+                alt="like button"
+              />
+            </h2>
+          </div>
+          <div class="element__content">
+            <img
+              src="./images/LagoLouise.png"
+              class="element__grid"
+              alt="Lago Louise"
+            />
+            <h2 class="element__name">
+              Lago Louise
+              <img
+                class="element__like"
+                src="./images/Group.png"
+                alt="like button"
+              />
+            </h2>
+          </div>
+          <div class="element__content">
+            <img
+              src="./images/MontanasCalvas.png"
+              class="element__grid"
+              alt="montanas calvas"
+            />
+            <h2 class="element__name">
+              Montañas Calvas
+              <img
+                class="element__like"
+                src="./images/Group.png"
+                alt="like button"
+              />
+            </h2>
+          </div>
+          <div class="element__content">
+            <img
+              src="./images/Latemar.png"
+              class="element__grid"
+              alt="Latemar"
+            />
+            <h2 class="element__name">
+              Latemar
+              <img
+                class="element__like"
+                src="./images/Group.png"
+                alt="like button"
+              />
+            </h2>
+          </div>
+          <div class="element__content">
+            <img
+              src="./images/VanoisNational.png"
+              class="element__grid"
+              alt="Vanois Natiotanl"
+            />
+            <h2 class="element__name">
+              Vanois National...<img
+                class="element__like"
+                src="./images/Group.png"
+                alt="like button"
+              />
+            </h2>
+          </div>
+          <div class="element__content">
+            <img
+              src="./images/LagoBraies.png"
+              class="element__grid"
+              alt="Lago
+          Di Braises"
+            />
+
+            <h2 class="element__name">
+              Lago di Braies<img
+                class="element__like"
+                src="./images/Group.png"
+                alt="like button"
+              />
+            </h2>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="popup">
+          <button type="button" class="popup__exit">X</button>
+          <div class="popup__container">
+            <h2 class="popup__tittle">Editar perfil</h2>
+            <form class="popup__form">
+              <input
+                type="text"
+                placeholder="Nombre"
+                class="popup__input"
+                id="nombre"
+              /><input
+                type="text"
+                placeholder="Acerca de mi"
+                class="popup__input"
+                id="profesion"
+              />
+              <button class="popup__button" type="submit">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="footer__name">© 2025 Around The U.S.</p>
+      </footer>
+    </main>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
