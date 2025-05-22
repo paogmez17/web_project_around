@@ -1,6 +1,7 @@
 # Tripleten web_project_around
 
-https://github.com/paogmez17/web_project_around#
+GitHub Pages
+https://paogmez17.github.io/web_project_around/
 
 Uso de CSS
 Se implementó la propiedad position en ciertos elementos para lograr una ubicación adecuada dentro del diseño.
