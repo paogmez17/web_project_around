@@ -10,7 +10,8 @@
 
 .element__grid {
   width: 100%;
-  border-radius: 1.5px;
+  height: 60%;
+  border-radius: 2.8px;
 }
 
 .element__name {
@@ -30,7 +31,6 @@
   position: relative;
   height: 70px;
 }
-
 .element__like {
   width: 21px;
   height: 19px;
