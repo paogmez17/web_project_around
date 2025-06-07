@@ -16,3 +16,24 @@ Se utilizaron variables para almacenar y manipular información de manera flexib
 Se crearon funciones para agregar métodos como addEventListener, lo cual permite asignar eventos a elementos específicos.
 
 Se implementó el manejo de eventos para interactuar con el usuario y ejecutar acciones dinámicas según sus interacciones.
+
+✅ Resumen de lo que utilicé de JavaScript
+document.querySelector: para seleccionar elementos del DOM y poder manipularlos.
+
+addEventListener: para escuchar eventos como clics o envíos de formularios.
+
+Funciones personalizadas: para abrir y cerrar popups, crear tarjetas, guardar datos del perfil, etc.
+
+classList.add y classList.remove: para mostrar u ocultar los popups.
+
+textContent, value, src, alt: para modificar el contenido o atributos de elementos HTML.
+
+preventDefault(): para evitar que el formulario recargue la página al enviarlo.
+
+forEach: para recorrer el array de tarjetas iniciales y mostrarlas al cargar la página.
+
+cloneNode(true): para clonar una plantilla de tarjeta desde el HTML.
+
+appendChild / prepend / remove(): para agregar o quitar elementos del DOM dinámicamente.
+
+classList.toggle: para activar o desactivar el botón de "like".

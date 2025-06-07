@@ -12,16 +12,17 @@
   <body class="body">
     <header class="header">
       <div class="header__logo">
-        <img src="images/Vector.svg" class="header__logo-vector" alt="logo" />
+        <img src="./images/Vector.svg" class="header__logo-vector" alt="logo" />
       </div>
-      <div class="header__line"></div>
     </header>
+
     <main>
+      <!-- Perfil -->
       <section class="profile">
         <div class="profile__content">
           <img
             class="profile__picture"
-            src="images/Avatar.png"
+            src="./images/Avatar.png"
             alt="imagen perfil"
           />
           <div class="profile__info">
@@ -30,13 +31,13 @@
           </div>
           <div class="profile__edit">
             <button class="profile__edit-button" type="button">
-              <img alt="edit button" src="images/editbutton.png" />
+              <img alt="edit button" src="./images/editbutton.png" />
             </button>
           </div>
           <div class="profile__add">
             <button class="profile__add-button" type="submit">
               <img
-                src="images/addbutton.png"
+                src="./images/addbutton.png"
                 alt="add button"
                 class="profile__add-vector"
               />
@@ -44,52 +45,98 @@
           </div>
         </div>
       </section>
-      <section>
-        <div class="element"></div>
-      </section>
-      <section>
-        <div class="popup">
-          <button type="button" class="popup__exit">X</button>
-          <div class="popup__container">
-            <h2 class="popup__tittle">Editar perfil</h2>
-            <form class="popup__form">
-              <input
-                type="text"
-                placeholder="Nombre"
-                class="popup__input"
-                id="nombre"
-              /><input
-                type="text"
-                placeholder="Acerca de mi"
-                class="popup__input"
-                id="profesion"
-              />
-              <button class="popup__button" type="submit">Guardar</button>
-            </form>
-          </div>
+
+      <!-- Galería -->
+      <section class="elements" id="elements"></section>
+
+      <!-- Popup: Editar perfil -->
+
+      <div class="popup" id="popup-profile">
+        <button
+          type="button"
+          class="popup__exit"
+          id="popup-profile-close-button"
+        >
+          X
+        </button>
+        <div class="popup__container" id="popupImageContainer">
+          <h2 class="popup__title">Editar perfil</h2>
+          <form class="popup__form">
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="popup__input popup__input--name"
+              id="nombre"
+            />
+            <input
+              type="text"
+              placeholder="Acerca de mí"
+              class="popup__input popup__input--about"
+              id="profesion"
+            />
+            <button class="popup__button" type="submit" id="save">
+              Guardar
+            </button>
+          </form>
         </div>
-      </section>
+      </div>
+
+      <div class="popup" id="popup-place">
+        <button type="button" class="popup__exit" id="popup-place-close-button">
+          X
+        </button>
+        <div class="popup__container">
+          <h2 class="popup__title">Nuevo lugar</h2>
+          <form class="popup__form">
+            <input
+              type="text"
+              placeholder="Título"
+              class="popup__input popup__input--title"
+              id="title"
+            />
+            <input
+              type="url"
+              placeholder="Enlace a la imagen"
+              class="popup__input popup__input--url"
+              id="link"
+            />
+            <button class="popup__button" type="submit" id="create">
+              Crear
+            </button>
+          </form>
+        </div>
+      </div>
+
       <footer class="footer">
         <p class="footer__name">© 2025 Around The U.S.</p>
       </footer>
     </main>
-    <template id="element-content"
-      ><div class="element__content">
+
+    <div class="popup" id="popup-image">
+      <button type="button" class="popup__exit" id="popup-image-close-button">
+        X
+      </button>
+      <div class="popup__container">
+        <img class="popup__img" />
+        <h2 class="popup__img-title"></h2>
+      </div>
+    </div>
+    <template id="card-template">
+      <div class="card">
+        <button class="card__delete-button" type="button"></button>
         <img
           src="./images/ValleYosemite.jpg"
-          class="element__grid"
-          alt="imagen
-          de Valle de Yosemite"
+          class="card__image"
+          alt="Imagen de Valle de Yosemite"
+          id="popuImageImg"
         />
-        <h2 class="element__name">
-          Valle de Yosemite
-          <img
-            class="element__like"
-            src="./images/Group.png"
-            alt="like button"
-          />
-        </h2></div
-    ></template>
+        <div class="card__info">
+          <h2 class="card__title">Valle de Yosemite</h2>
+          <button class="card__like-button" type="button"></button>
+        </div>
+      </div>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
