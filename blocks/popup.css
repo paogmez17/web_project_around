@@ -115,7 +115,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 544px) {
   .popup__exit {
-    top: 105px;
+    top: 57px;
     right: 60px;
     font-size: 25px;
   }

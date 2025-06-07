@@ -40,7 +40,7 @@
   border-color: white;
   position: absolute;
   top: 65px;
-  right: 550px;
+  right: 370px;
 }
 
 .profile__add-button {
@@ -68,12 +68,12 @@
 
 @media screen and (min-width: 545px) and (max-width: 1024px) {
   .profile__info-name {
-    font-size: 35px;
+    font-size: 33px;
   }
 
   .profile__edit-button {
     top: 65px;
-    right: 315px;
+    right: 270px;
   }
 
   .profile__add-button {
@@ -100,16 +100,16 @@
   }
 
   .profile__info-name {
-    font-size: 30px;
+    font-size: 22px;
   }
 
   .profile__edit-button {
     top: 145px;
-    right: 90px;
+    right: 85px;
   }
 
   .profile__add-button {
-    right: 185px;
-    top: 260px;
+    right: 140px;
+    top: 250px;
   }
 }
