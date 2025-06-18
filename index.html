@@ -52,29 +52,42 @@
       <!-- Popup: Editar perfil -->
 
       <div class="popup" id="popup-profile">
-        <button
-          type="button"
-          class="popup__exit"
-          id="popup-profile-close-button"
-        >
-          X
-        </button>
-        <div class="popup__container" id="popupImageContainer">
+        <div class="popup__container" id="popupEditContainer">
+          <button
+            type="button"
+            class="popup__exit"
+            id="popup-profile-close-button"
+          >
+            X
+          </button>
           <h2 class="popup__title">Editar perfil</h2>
-          <form class="popup__form">
+          <form class="popup__form" id="FormProfile">
             <input
               type="text"
               placeholder="Nombre"
               class="popup__input popup__input--name"
-              id="nombre"
+              id="inputname"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span class="popup__input_type_error" id="inputname-error"></span>
+
             <input
               type="text"
               placeholder="Acerca de mí"
               class="popup__input popup__input--about"
-              id="profesion"
+              id="inputprofesion"
+              minlength="2"
+              maxlength="200"
+              required
             />
-            <button class="popup__button" type="submit" id="save">
+            <span
+              class="popup__input_type_error"
+              id="inputprofesion-error"
+            ></span>
+
+            <button class="popup__button" type="submit" id="save" disabled>
               Guardar
             </button>
           </form>
@@ -82,25 +95,35 @@
       </div>
 
       <div class="popup" id="popup-place">
-        <button type="button" class="popup__exit" id="popup-place-close-button">
-          X
-        </button>
-        <div class="popup__container">
+        <div class="popup__container" id="popupAddPlace">
+          <button
+            type="button"
+            class="popup__exit"
+            id="popup-place-close-button"
+          >
+            X
+          </button>
           <h2 class="popup__title">Nuevo lugar</h2>
-          <form class="popup__form">
+          <form class="popup__form" id="FormCard">
             <input
               type="text"
               placeholder="Título"
               class="popup__input popup__input--title"
-              id="title"
+              id="inputtitle"
+              minlength="2"
+              maxlength="30"
+              required
             />
+            <span class="popup__input_type_error" id="inputtitle-error"></span>
+
             <input
               type="url"
               placeholder="Enlace a la imagen"
               class="popup__input popup__input--url"
-              id="link"
+              id="inputlink"
             />
-            <button class="popup__button" type="submit" id="create">
+            <span class="popup__input_type_error" id="inputlink-error"></span>
+            <button class="popup__button" type="submit" id="create" disabled>
               Crear
             </button>
           </form>
@@ -113,12 +136,19 @@
     </main>
 
     <div class="popup" id="popup-image">
-      <button type="button" class="popup__exit" id="popup-image-close-button">
-        X
-      </button>
       <div class="popup__container">
-        <img class="popup__img" />
-        <h2 class="popup__img-title"></h2>
+        <div class="popup__container popup__container--image">
+          >
+          <button
+            type="button"
+            class="popup__exit"
+            id="popup-image-close-button"
+          >
+            X
+          </button>
+          <img class="popup__img" />
+          <h2 class="popup__img-title"></h2>
+        </div>
       </div>
     </div>
     <template id="card-template">
@@ -138,5 +168,6 @@
     </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  width: 282px;
 }
 .card__title {
   background-color: white;

@@ -7,15 +7,17 @@ const popupProfileCloseBtn = document.querySelector(
   "#popup-profile-close-button"
 );
 const popupPlaceCloseBtn = document.querySelector("#popup-place-close-button");
+const formInput = document.querySelectorAll(".popup__input");
+const profileAdd = document.querySelector(".popup__button");
 const formElement = document.querySelector(".popup__form");
+const formCard = document.querySelector("#FormCard");
 const profileName = document.querySelector(".profile__info-name");
 const profileJob = document.querySelector(".profile__info-career");
 const saveButton = document.querySelector("#save");
-const nameInput = document.querySelector("#nombre");
-const jobInput = document.querySelector("#profesion");
-const profileAdd = document.querySelector(".popup__button");
-const titleInput = document.querySelector("#title");
-const linkInput = document.querySelector("#link");
+const nameInput = document.querySelector("#inputname");
+const jobInput = document.querySelector("#inputprofesion");
+const titleInput = document.querySelector("#inputtitle");
+const linkInput = document.querySelector("#inputlink");
 const sectionElement = document.querySelector("#elements");
 const createButton = document.querySelector("#create");
 const templateCard = document.querySelector("#card-template");
@@ -23,7 +25,6 @@ const image = document.querySelector("#popImageImg");
 const imgPopupElement = document.querySelector(".popup__img");
 const titlePopupElement = document.querySelector(".popup__img-title");
 const popupImageCloseBtn = document.querySelector("#popup-image-close-button");
-
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -50,6 +51,15 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
+const popupValidationName = formElement.querySelector("#inputname-error");
+const popupValidationProfession = formElement.querySelector(
+  "#inputprofesion-error"
+);
+const inputErrorTitle = formElement.querySelector("#inputtittle-error");
+const inputErrorUrl = document.querySelector("#inputlink-error");
+const popups = document.querySelectorAll(".popup");
+
+// Event Listener
 
 editButton.addEventListener("click", handleOpenProfilePopup);
 popupProfileCloseBtn.addEventListener("click", closePopupProfile);
@@ -125,7 +135,6 @@ function handleSaveNewPlace(evt) {
   const title = titleInput.value;
   const link = linkInput.value;
   createCard(title, link);
-  form.classList.remove("popup_opened");
   titleInput.value = "";
   linkInput.value = "";
 }
@@ -135,3 +144,31 @@ function openPopupImage(link, name) {
   imgPopupElement.src = link;
   titlePopupElement.textContent = name;
 }
+
+popups.forEach((popup) => {
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      popup.classList.remove("popup_opened");
+      console.log("Popup cerrado por clic en el fondo");
+    }
+  });
+});
+
+function closeAllPopups() {
+  popups.forEach((popup) => {
+    popup.classList.remove("popup_opened");
+  });
+}
+
+function handleEscClose(e) {
+  if (e.key === "Escape") {
+    const isAnyPopupOpen = [...popups].some((popup) =>
+      popup.classList.contains("popup_opened")
+    );
+    if (isAnyPopupOpen) {
+      closeAllPopups();
+      console.log("ESC presionado y popups cerrados");
+    }
+  }
+}
+document.addEventListener("keydown", handleEscClose);
