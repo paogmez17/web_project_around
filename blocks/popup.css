@@ -130,14 +130,25 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 544px) {
+  .popup__container {
+    border-radius: 20px;
+    margin: auto;
+    background-color: white;
+    position: relative;
+    top: -32px;
+    height: 46%;
+  }
   .popup__exit {
-    top: 57px;
-    right: 60px;
-    font-size: 25px;
+    top: -45px;
+    right: -10px;
   }
 
   .popup__card {
     width: 282px;
     margin: auto;
+  }
+
+  .popup__img {
+    width: 100%;
   }
 }
