@@ -2,8 +2,6 @@
   color: white;
   margin: auto;
   display: flex;
-  flex-direction: row;
-
   padding: 50px 175px 0;
   position: relative;
 }
@@ -102,8 +100,7 @@
 
   .profile__info-name {
     font-size: 25px;
-
-    padding-bottom: 16px;
+    adding-bottom: 16px;
   }
 
   .profile__edit-button {
