@@ -40,7 +40,7 @@
   border-color: white;
   position: absolute;
   top: 65px;
-  right: 370px;
+  right: 530px;
 }
 
 .profile__add-button {
@@ -73,7 +73,7 @@
 
   .profile__edit-button {
     top: 65px;
-    right: 270px;
+    right: 333px;
   }
 
   .profile__add-button {
@@ -87,7 +87,7 @@
   .profile__content {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 10px 80px 0;
+    padding: 10px 21px 0;
     margin-bottom: 120px;
   }
   .profile__picture {
@@ -100,16 +100,18 @@
   }
 
   .profile__info-name {
-    font-size: 22px;
+    font-size: 25px;
+
+    padding-bottom: 16px;
   }
 
   .profile__edit-button {
     top: 145px;
-    right: 85px;
+    right: 32px;
   }
 
   .profile__add-button {
-    right: 140px;
-    top: 250px;
+    right: 84px;
+    top: 291px;
   }
 }
