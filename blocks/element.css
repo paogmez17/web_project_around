@@ -4,7 +4,6 @@
   gap: 15px;
   padding: 50px 195px 0;
   margin: auto;
-  position: relative;
 }
 
 @media screen and (min-width: 545px) and (max-width: 1024px) {
@@ -17,6 +16,7 @@
 @media screen and (min-width: 320px) and (max-width: 544px) {
   .elements {
     grid-template-columns: repeat(1, 1fr);
-    padding: 50px 19px 0;
+    padding: 50px 18px 0;
+    width: 280px;
   }
 }

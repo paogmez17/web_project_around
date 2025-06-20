@@ -3,8 +3,8 @@
   margin: auto;
   display: flex;
   flex-direction: row;
-  padding: 50px 175px 0;
 
+  padding: 50px 175px 0;
   position: relative;
 }
 
@@ -87,7 +87,8 @@
   .profile__content {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 10px 21px 0;
+    padding: 10px 29px 0px;
+
     margin-bottom: 120px;
   }
   .profile__picture {
@@ -111,7 +112,7 @@
   }
 
   .profile__add-button {
-    right: 84px;
+    right: 98px;
     top: 291px;
   }
 }
