@@ -18,14 +18,24 @@
 .popup__container {
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
-  position: relative;
-  top: -20px;
+  display: flex;
+  flex-direction: column;
   margin: auto;
-  max-height: 55vh;
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .popup__container--image {
   background-color: transparent;
+  width: 40%;
+  max-width: 800px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .popup__title {
@@ -108,18 +118,22 @@
 }
 
 .popup__img {
-  object-fit: cover;
   width: 100%;
-  height: 70vh;
+  height: auto;
+  border-radius: 10px;
+  max-height: 66vh;
 }
 
 .popup__img-title {
+  position: absolute;
+  bottom: -25px;
+  left: 10px;
+  margin: 0;
   color: white;
   font-family: "Inter-Regular", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 100%;
-  letter-spacing: 0%;
+  font-size: 15px;
+  padding: 4px 2px;
+  border-radius: 4px;
 }
 
 @media screen and (min-width: 545px) and (max-width: 1024px) {
@@ -132,7 +146,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 544px) {
   .popup__container {
-    max-height: 65vh;
+    max-height: 60;
     width: 300px;
   }
 
@@ -142,14 +156,5 @@
   .popup__exit {
     top: -45px;
     right: -10px;
-  }
-
-  .popup__card {
-    width: 282px;
-    margin: auto;
-  }
-
-  .popup__img {
-    max-height: 66vh;
   }
 }
