@@ -100,16 +100,16 @@
 
   .profile__info-name {
     font-size: 25px;
-    adding-bottom: 16px;
+    padding-bottom: 16px;
   }
 
   .profile__edit-button {
     top: 145px;
-    right: 32px;
+    right: 65px;
   }
 
   .profile__add-button {
-    right: 98px;
+    right: 162px;
     top: 291px;
   }
 }
