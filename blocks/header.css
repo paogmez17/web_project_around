@@ -6,9 +6,16 @@
   border-bottom: 1px solid #c4c4c454;
 }
 
+@media screen and (min-width: 545px) and (max-width: 1024px) {
+  .header {
+    width: 573px;
+  }
+}
+
 @media screen and (min-width: 320px) and (max-width: 544px) {
   .header {
+    width: 373px;
     margin: auto;
-    padding: 50px 45px 0;
+    padding: 50px 52px 0;
   }
 }

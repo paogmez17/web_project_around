@@ -92,7 +92,7 @@
   .profile__content {
     display: grid;
     grid-template-columns: 1fr;
-    padding: 10px 29px 0px;
+    padding: 10px 38px 0px;
     margin-bottom: 115px;
     width: 415px;
   }
@@ -112,7 +112,7 @@
 
   .profile__edit-button {
     top: 145px;
-    right: 65px;
+    right: 93px;
   }
 
   .profile__add-button {
