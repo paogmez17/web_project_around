@@ -1,9 +1,34 @@
-# Tripleten web_project_around
-
 GitHub Pages
 https://paogmez17.github.io/web_project_around/
 
-Uso de CSS
+##Titulo del proyecto: Around the US
+
+##Descripcion:
+
+Este proyecto permite explorar diferentes imágenes de lugares en Estados Unidos y agregar sitios personalizados. Ofrece un perfil interactivo y personalizable, donde es posible modificar el nombre, la profesión, las fotos y el contenido. Además, permite ampliar las imágenes y dar 'like' a las tarjetas favoritas.
+
+##Uso
+Este proyecto es una aplicación web interactiva para agregar lugares con nombre e imagen. Permite editar el perfil, agregar nuevas tarjetas con información visual y ver imágenes en tamaño completo.
+A continuación algunos ejemplos de uso:
+
+Funcionalidades principales:
+Editar perfil:
+Haz clic en el botón ✏️ para abrir el formulario. Puedes modificar tu nombre y ocupación. El botón “Guardar” solo se activa si ambos campos están completos y válidos.
+
+Agregar nueva tarjeta:
+Al hacer clic en el botón ➕, se abre un formulario para ingresar el nombre del lugar y la URL de la imagen.
+El botón “Crear” se activa solo si ambos campos son válidos (el título no está vacío y la URL es válida).
+
+Ver imagen ampliada:
+Al hacer clic sobre una imagen en una tarjeta, se muestra un popup con la imagen en tamaño grande y su nombre.
+
+Eliminar tarjeta:
+Cada tarjeta tiene un ícono 🗑️ para eliminarla.
+
+Dar “me gusta”:
+Puedes hacer clic en el ícono ❤️ para marcar una tarjeta como favorita.
+
+##Uso de CSS
 Se implementó la propiedad position en ciertos elementos para lograr una ubicación adecuada dentro del diseño.
 
 Se utilizó grid para organizar los elementos en una estructura de cuadrícula, facilitando una disposición ordenada y responsiva.
@@ -17,7 +42,7 @@ Se crearon funciones para agregar métodos como addEventListener, lo cual permit
 
 Se implementó el manejo de eventos para interactuar con el usuario y ejecutar acciones dinámicas según sus interacciones.
 
-✅ Resumen de lo que utilicé de JavaScript
+##Uso de JavaScript
 document.querySelector: para seleccionar elementos del DOM y poder manipularlos.
 
 addEventListener: para escuchar eventos como clics o envíos de formularios.
@@ -37,3 +62,7 @@ cloneNode(true): para clonar una plantilla de tarjeta desde el HTML.
 appendChild / prepend / remove(): para agregar o quitar elementos del DOM dinámicamente.
 
 classList.toggle: para activar o desactivar el botón de "like".
+
+##Autores
+
+Paola Gomez

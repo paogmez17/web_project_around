@@ -119,7 +119,6 @@ function closePopup() {
   popupProfile.classList.remove("popup_opened");
   popupPlace.classList.remove("popup_opened");
   popupImage.classList.remove("popup_opened");
-  console.log("cerrar  el popup!");
 }
 
 function closePopupProfile() {
@@ -149,7 +148,6 @@ popups.forEach((popup) => {
   popup.addEventListener("click", function (e) {
     if (e.target === popup) {
       popup.classList.remove("popup_opened");
-      console.log("Popup cerrado por clic en el fondo");
     }
   });
 });
@@ -167,7 +165,6 @@ function handleEscClose(e) {
     );
     if (isAnyPopupOpen) {
       closeAllPopups();
-      console.log("ESC presionado y popups cerrados");
     }
   }
 }

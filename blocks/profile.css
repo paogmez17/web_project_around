@@ -1,9 +1,10 @@
 .profile__content {
   color: white;
-  margin: auto;
+  margin: 0;
   display: flex;
   padding: 50px 175px 0;
   position: relative;
+  width: 880px;
 }
 
 .profile__picture {
@@ -38,7 +39,7 @@
   border-color: white;
   position: absolute;
   top: 65px;
-  right: 530px;
+  right: 521px;
 }
 
 .profile__add-button {
@@ -65,19 +66,25 @@
 }
 
 @media screen and (min-width: 545px) and (max-width: 1024px) {
+  .profile__content {
+    padding: 20px 114px 0px;
+    margin-bottom: 23px;
+    width: 650px;
+  }
+
   .profile__info-name {
     font-size: 33px;
   }
 
   .profile__edit-button {
-    top: 65px;
-    right: 333px;
+    top: 38px;
+    right: 288px;
   }
 
   .profile__add-button {
     position: absolute;
-    right: 195px;
-    top: 100px;
+    right: 141px;
+    top: 81px;
   }
 }
 
@@ -86,8 +93,8 @@
     display: grid;
     grid-template-columns: 1fr;
     padding: 10px 29px 0px;
-
-    margin-bottom: 120px;
+    margin-bottom: 115px;
+    width: 415px;
   }
   .profile__picture {
     margin: auto;
