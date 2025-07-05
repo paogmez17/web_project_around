@@ -146,23 +146,27 @@
         <h2 class="popup__img-title"></h2>
       </div>
     </div>
-    <template id="card-template">
-      <div class="card">
-        <button class="card__delete-button" type="button"></button>
-        <img
-          src="./images/ValleYosemite.jpg"
-          class="card__image"
-          alt="Imagen de Valle de Yosemite"
-          id="popuImageImg"
-        />
-        <div class="card__info">
-          <h2 class="card__title">Valle de Yosemite</h2>
-          <button class="card__like-button" type="button"></button>
+    <section class="cards">
+      <template id="card-template">
+        <div class="card">
+          <button class="card__delete-button" type="button"></button>
+          <img
+            src="./images/ValleYosemite.jpg"
+            class="card__image"
+            alt="Imagen de Valle de Yosemite"
+            id="popuImageImg"
+          />
+          <div class="card__info">
+            <h2 class="card__title">Valle de Yosemite</h2>
+            <button class="card__like-button" type="button"></button>
+          </div>
         </div>
-      </div>
-    </template>
+      </template>
+    </section>
 
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
+    <script type="module" src="./scripts/Card.js"></script>
+    <script type="module" src="./scripts/utils.js"></script>
   </body>
 </html>

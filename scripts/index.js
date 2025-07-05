@@ -1,6 +1,12 @@
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+import { validationConfig } from "./utils.js";
+export const imgPopupElement = document.querySelector(".popup__img");
+export const titlePopupElement = document.querySelector(".popup__img-title");
+export const popupImage = document.querySelector("#popup-image");
+
 const popupProfile = document.querySelector("#popup-profile");
 const popupPlace = document.querySelector("#popup-place");
-const popupImage = document.querySelector("#popup-image");
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const popupProfileCloseBtn = document.querySelector(
@@ -22,8 +28,7 @@ const sectionElement = document.querySelector("#elements");
 const createButton = document.querySelector("#create");
 const templateCard = document.querySelector("#card-template");
 const image = document.querySelector("#popImageImg");
-const imgPopupElement = document.querySelector(".popup__img");
-const titlePopupElement = document.querySelector(".popup__img-title");
+
 const popupImageCloseBtn = document.querySelector("#popup-image-close-button");
 const initialCards = [
   {
@@ -58,6 +63,17 @@ const popupValidationProfession = formElement.querySelector(
 const inputErrorTitle = formElement.querySelector("#inputtittle-error");
 const inputErrorUrl = document.querySelector("#inputlink-error");
 const popups = document.querySelectorAll(".popup");
+const formProfile = document.querySelector("#FormProfile");
+
+//Instancias FormValidator
+
+const profileFormValidator = new FormValidator(validationConfig, formProfile);
+
+profileFormValidator.enableValidation();
+
+const cardFormValidator = new FormValidator(validationConfig, formCard);
+
+cardFormValidator.enableValidation();
 
 // Event Listener
 
@@ -71,35 +87,11 @@ saveButton.addEventListener("click", closePopupProfile);
 createButton.addEventListener("click", closePopupPlace);
 popupImageCloseBtn.addEventListener("click", closePopup);
 
-initialCards.forEach(function (item) {
-  createCard(item.name, item.link);
+initialCards.forEach((card) => {
+  const newCard = new Card(card.name, card.link, "#card-template");
+  const cardElement = newCard.setDataTemplate();
+  document.querySelector(".elements").appendChild(cardElement);
 });
-
-function createCard(name, link) {
-  const card = templateCard.content.querySelector(".card").cloneNode(true);
-
-  const cardName = card.querySelector(".card__title");
-  cardName.textContent = name;
-
-  const cardImage = card.querySelector(".card__image");
-  cardImage.src = link;
-  cardImage.alt = `Imagen de ${name}`;
-  cardImage.addEventListener("click", function () {
-    openPopupImage(link, name);
-  });
-
-  const likeButton = card.querySelector(".card__like-button");
-  likeButton.addEventListener("click", function () {
-    likeButton.classList.toggle("card__like-button--active");
-  });
-
-  const deleteButton = card.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", function () {
-    card.remove();
-  });
-
-  sectionElement.prepend(card);
-}
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -138,10 +130,30 @@ function handleSaveNewPlace(evt) {
   linkInput.value = "";
 }
 
-function openPopupImage(link, name) {
-  popupImage.classList.add("popup_opened");
-  imgPopupElement.src = link;
-  titlePopupElement.textContent = name;
+function createCard(name, link) {
+  const card = templateCard.content.querySelector(".card").cloneNode(true);
+
+  const cardName = card.querySelector(".card__title");
+  cardName.textContent = name;
+
+  const cardImage = card.querySelector(".card__image");
+  cardImage.src = link;
+  cardImage.alt = `Imagen de ${name}`;
+  cardImage.addEventListener("click", function () {
+    openPopupImage(link, name);
+  });
+
+  const likeButton = card.querySelector(".card__like-button");
+  likeButton.addEventListener("click", function () {
+    likeButton.classList.toggle("card__like-button--active");
+  });
+
+  const deleteButton = card.querySelector(".card__delete-button");
+  deleteButton.addEventListener("click", function () {
+    card.remove();
+  });
+
+  sectionElement.prepend(card);
 }
 
 popups.forEach((popup) => {

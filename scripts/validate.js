@@ -1,42 +1,4 @@
-const settigns = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
-
-// Mostrar mensaje de error
-
-function showInputError(formSelector, inputSelector, errorMessage) {
-  const errorElement = formSelector.querySelector(`#${inputSelector.id}-error`);
-  inputSelector.classList.add("popup__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("popup__input-error_visible");
-}
-
-// Ocultar mensaje de error
-
-function hideInputError(formSelector, inputSelector) {
-  const errorElement = formSelector.querySelector(`#${inputSelector.id}-error`);
-  inputSelector.classList.remove("popup__input_type_error");
-  errorElement.textContent = "";
-  errorElement.classList.remove("popup__input-error_visible");
-}
-
-// Verificar si un input es válido
-function checkInputValidity(formSelector, inputSelector) {
-  if (!inputSelector.validity.valid) {
-    showInputError(
-      formSelector,
-      inputSelector,
-      inputSelector.validationMessage
-    );
-  } else {
-    hideInputError(formSelector, inputSelector);
-  }
-}
+/*
 
 // Verificar si hay inputs inválidos
 function hasInvalidInput(inputList) {
@@ -73,3 +35,4 @@ function enableValidation() {
 
 // Llamamos la función para activar validación en todos los formularios
 enableValidation();
+*/
