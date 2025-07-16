@@ -4,7 +4,7 @@ import { validationConfig } from "./utils.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { PopupWithForm } from "./PopupWithForm.js";
 import { UserInfo } from "./UserInfo.js";
-
+import { Section } from "./Section.js";
 export const imgPopupElement = document.querySelector(".popup__img");
 export const titlePopupElement = document.querySelector(".popup__img-title");
 export const popupImage = document.querySelector("#popup-image");
@@ -15,7 +15,7 @@ const formCard = document.querySelector("#FormCard");
 const nameInput = document.querySelector("#inputname");
 const jobInput = document.querySelector("#inputprofesion");
 const sectionElement = document.querySelector("#elements");
-
+const formProfile = document.querySelector("#FormProfile");
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -43,13 +43,25 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach(({ name, link }) => {
-  const card = new Card(name, link, "#card-template", openImagePopup);
-  const cardElement = card.setDataTemplate();
-  sectionElement.prepend(cardElement);
-});
+// --- FUNCIONES ---
+function createCard(item) {
+  const card = new Card(item.name, item.link, "#card-template", openImagePopup);
+  return card.setDataTemplate();
+}
 
-const formProfile = document.querySelector("#FormProfile");
+// --- INSTANCIAR SECTION ---
+const section = new Section(
+  {
+    items: initialCards, // array de tarjetas iniciales
+    renderer: (item) => {
+      const cardElement = createCard(item);
+      section.addItem(cardElement); // usa addItem de Section
+    },
+  },
+  ".elements"
+);
+
+section.renderItems();
 
 //Instancias FormValidator
 
