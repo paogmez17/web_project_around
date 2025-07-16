@@ -1,13 +1,9 @@
-import { openPopupImage } from "./utils.js";
-
-// declaracion de la clase
 export class Card {
-  //declaracion de las propiedad de constructor
-
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick; // función para abrir el popup
   }
 
   _cloneTemplate() {
@@ -41,7 +37,7 @@ export class Card {
 
     this.cardImage = this.element.querySelector(".card__image");
     this.cardImage.addEventListener("click", () => {
-      openPopupImage(this._link, this._name);
+      this._handleCardClick(this._name, this._link);
     });
   }
 }

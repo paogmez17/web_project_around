@@ -1,35 +1,21 @@
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 import { validationConfig } from "./utils.js";
+import { PopupWithImage } from "./PopupWithImage.js";
+import { PopupWithForm } from "./PopupWithForm.js";
+import { UserInfo } from "./UserInfo.js";
+
 export const imgPopupElement = document.querySelector(".popup__img");
 export const titlePopupElement = document.querySelector(".popup__img-title");
 export const popupImage = document.querySelector("#popup-image");
 
-const popupProfile = document.querySelector("#popup-profile");
-const popupPlace = document.querySelector("#popup-place");
-const editButton = document.querySelector(".profile__edit-button");
-const addButton = document.querySelector(".profile__add-button");
-const popupProfileCloseBtn = document.querySelector(
-  "#popup-profile-close-button"
-);
-const popupPlaceCloseBtn = document.querySelector("#popup-place-close-button");
-const formInput = document.querySelectorAll(".popup__input");
-const profileAdd = document.querySelector(".popup__button");
-const formElement = document.querySelector(".popup__form");
+const profileEditButton = document.querySelector(".profile__edit-button");
+const profileAddButton = document.querySelector(".profile__add-button");
 const formCard = document.querySelector("#FormCard");
-const profileName = document.querySelector(".profile__info-name");
-const profileJob = document.querySelector(".profile__info-career");
-const saveButton = document.querySelector("#save");
 const nameInput = document.querySelector("#inputname");
 const jobInput = document.querySelector("#inputprofesion");
-const titleInput = document.querySelector("#inputtitle");
-const linkInput = document.querySelector("#inputlink");
 const sectionElement = document.querySelector("#elements");
-const createButton = document.querySelector("#create");
-const templateCard = document.querySelector("#card-template");
-const image = document.querySelector("#popImageImg");
 
-const popupImageCloseBtn = document.querySelector("#popup-image-close-button");
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -56,13 +42,13 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
-const popupValidationName = formElement.querySelector("#inputname-error");
-const popupValidationProfession = formElement.querySelector(
-  "#inputprofesion-error"
-);
-const inputErrorTitle = formElement.querySelector("#inputtittle-error");
-const inputErrorUrl = document.querySelector("#inputlink-error");
-const popups = document.querySelectorAll(".popup");
+
+initialCards.forEach(({ name, link }) => {
+  const card = new Card(name, link, "#card-template", openImagePopup);
+  const cardElement = card.setDataTemplate();
+  sectionElement.prepend(cardElement);
+});
+
 const formProfile = document.querySelector("#FormProfile");
 
 //Instancias FormValidator
@@ -75,109 +61,63 @@ const cardFormValidator = new FormValidator(validationConfig, formCard);
 
 cardFormValidator.enableValidation();
 
-// Event Listener
+// Instancias de Popup para cada popup del HTML
 
-editButton.addEventListener("click", handleOpenProfilePopup);
-popupProfileCloseBtn.addEventListener("click", closePopupProfile);
-popupPlaceCloseBtn.addEventListener("click", closePopup);
-addButton.addEventListener("click", handleOpenPlaceForm);
-profileAdd.addEventListener("click", handleProfileFormSubmit);
-createButton.addEventListener("click", handleSaveNewPlace);
-saveButton.addEventListener("click", closePopupProfile);
-createButton.addEventListener("click", closePopupPlace);
-popupImageCloseBtn.addEventListener("click", closePopup);
+const popupEditProfile = new PopupWithForm(
+  "#popup-profile",
+  handleProfileFormSubmit
+);
+popupEditProfile.setEventListeners();
 
-initialCards.forEach((card) => {
-  const newCard = new Card(card.name, card.link, "#card-template");
-  const cardElement = newCard.setDataTemplate();
-  document.querySelector(".elements").appendChild(cardElement);
+const popupAddCard = new PopupWithForm("#popup-place", handleSaveNewPlace);
+popupAddCard.setEventListeners();
+
+// Abrir popup editar perfil
+profileEditButton.addEventListener("click", () => {
+  const currentUser = userInfo.getUserInfo();
+  nameInput.value = currentUser.name;
+  jobInput.value = currentUser.about;
+  popupEditProfile.open();
 });
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileJob.textContent = jobInput.value;
-}
-
-function handleOpenProfilePopup() {
-  popupProfile.classList.add("popup_opened");
-}
-
-function handleOpenPlaceForm() {
-  popupPlace.classList.add("popup_opened");
-}
-
-function closePopup() {
-  popupProfile.classList.remove("popup_opened");
-  popupPlace.classList.remove("popup_opened");
-  popupImage.classList.remove("popup_opened");
-}
-
-function closePopupProfile() {
-  popupProfile.classList.remove("popup_opened");
-}
-
-function closePopupPlace() {
-  popupPlace.classList.remove("popup_opened");
-}
-
-function handleSaveNewPlace(evt) {
-  evt.preventDefault();
-  const title = titleInput.value;
-  const link = linkInput.value;
-  createCard(title, link);
-  titleInput.value = "";
-  linkInput.value = "";
-}
-
-function createCard(name, link) {
-  const card = templateCard.content.querySelector(".card").cloneNode(true);
-
-  const cardName = card.querySelector(".card__title");
-  cardName.textContent = name;
-
-  const cardImage = card.querySelector(".card__image");
-  cardImage.src = link;
-  cardImage.alt = `Imagen de ${name}`;
-  cardImage.addEventListener("click", function () {
-    openPopupImage(link, name);
-  });
-
-  const likeButton = card.querySelector(".card__like-button");
-  likeButton.addEventListener("click", function () {
-    likeButton.classList.toggle("card__like-button--active");
-  });
-
-  const deleteButton = card.querySelector(".card__delete-button");
-  deleteButton.addEventListener("click", function () {
-    card.remove();
-  });
-
-  sectionElement.prepend(card);
-}
-
-popups.forEach((popup) => {
-  popup.addEventListener("click", function (e) {
-    if (e.target === popup) {
-      popup.classList.remove("popup_opened");
-    }
-  });
+// Abrir popup nuevo lugar
+profileAddButton.addEventListener("click", () => {
+  popupAddCard.open();
 });
 
-function closeAllPopups() {
-  popups.forEach((popup) => {
-    popup.classList.remove("popup_opened");
-  });
+//Instancias PopupWithImage
+
+const imagePopup = new PopupWithImage("#popup-image");
+imagePopup.setEventListeners();
+
+function openImagePopup(name, link) {
+  imagePopup.open(name, link);
 }
 
-function handleEscClose(e) {
-  if (e.key === "Escape") {
-    const isAnyPopupOpen = [...popups].some((popup) =>
-      popup.classList.contains("popup_opened")
-    );
-    if (isAnyPopupOpen) {
-      closeAllPopups();
-    }
-  }
+//
+
+function handleProfileFormSubmit(formData) {
+  userInfo.setUserInfo({
+    name: formData.name,
+    about: formData.about,
+  });
+  popupEditProfile.close();
 }
-document.addEventListener("keydown", handleEscClose);
+
+function handleSaveNewPlace(formData) {
+  const card = new Card(
+    formData.title,
+    formData.link,
+    "#card-template",
+    openImagePopup
+  );
+  const cardElement = card.setDataTemplate();
+  sectionElement.prepend(cardElement);
+
+  popupAddCard.close();
+}
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__info-name",
+  jobSelector: ".profile__info-career",
+});

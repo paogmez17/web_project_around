@@ -68,6 +68,7 @@
               placeholder="Nombre"
               class="popup__input popup__input--name"
               id="inputname"
+              name="name"
               minlength="2"
               maxlength="40"
               required
@@ -79,6 +80,7 @@
               placeholder="Acerca de mí"
               class="popup__input popup__input--about"
               id="inputprofesion"
+              name="about"
               minlength="2"
               maxlength="200"
               required
@@ -113,17 +115,15 @@
               id="inputtitle"
               minlength="2"
               maxlength="30"
+              name="inputname"
+              name="inputtitle"
               required
             />
             <span class="popup__input_type_error" id="inputtitle-error"></span>
 
-            <input
-              type="url"
-              placeholder="Enlace a la imagen"
-              class="popup__input popup__input--url"
-              id="inputlink"
-              required
-            />
+            <input type="url" placeholder="Enlace a la imagen"
+            class="popup__input popup__input--url" id="inputlink"
+            name="inputlink required />
             <span class="popup__input_type_error" id="inputlink-error"></span>
             <button class="popup__button" type="submit" id="create" disabled>
               Crear
@@ -168,5 +168,8 @@
     <script type="module" src="./scripts/FormValidator.js"></script>
     <script type="module" src="./scripts/Card.js"></script>
     <script type="module" src="./scripts/utils.js"></script>
+    <script type="module" src="./scripts/Section.js"></script>
+    <script type="module" src="./scripts/Popup.js"></script>
+    <script type="module" src="./scripts/PopupWithImage.js"></script>
   </body>
 </html>

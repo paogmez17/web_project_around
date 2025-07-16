@@ -63,6 +63,32 @@ appendChild / prepend / remove(): para agregar o quitar elementos del DOM dinám
 
 classList.toggle: para activar o desactivar el botón de "like".
 
+POO
+
+Este proyecto está diseñado siguiendo los principios de Programación Orientada a Objetos (POO) para estructurar y organizar el código de forma modular, reutilizable y mantenible.
+
+Clases principales implementadas
+Popup
+Clase base que maneja la lógica común de los popups modales, como abrir, cerrar y escuchar eventos de teclado y clics fuera del popup.
+
+PopupWithForm (hereda de Popup)
+Extiende Popup para incluir manejo de formularios, captura de datos de entrada y envío mediante callbacks personalizados.
+
+PopupWithImage (hereda de Popup)
+Especializa la clase base para mostrar imágenes con leyendas, modificando el método open() para actualizar dinámicamente el contenido.
+
+Card
+Clase que representa cada tarjeta de la galería, encapsulando la creación de elementos DOM, asignación de datos, y eventos como "like", eliminar y abrir imagen.
+
+Conceptos clave aplicados
+Encapsulación: Cada clase mantiene sus propios datos y métodos privados o públicos para manipular su estado interno sin exponer detalles innecesarios.
+
+Herencia: Clases hijas (PopupWithForm, PopupWithImage) reutilizan y amplían la funcionalidad de la clase padre Popup, evitando duplicación de código.
+
+Modularidad: Cada clase se define en su propio módulo, facilitando la organización y reutilización.
+
+Callbacks: Se utilizan funciones callback para manejar eventos personalizados, como el envío de formularios o la apertura de imágenes, permitiendo una interacción flexible entre objetos.
+
 ##Autores
 
 Paola Gomez
