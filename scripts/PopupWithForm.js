@@ -4,8 +4,10 @@ export class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit; // callback para el submit
-    this._form = this.popup.querySelector("form"); // formulario dentro del popup
+    this._form = this._popup.querySelector("form"); // formulario dentro del popup
     this._inputList = Array.from(this._form.querySelectorAll("input")); // inputs dentro del formulario
+    this._submitButton = this._form.querySelector(".popup__submit-button");
+    this._submitButtonText = this._submitButton.textContent;
   }
   _getInputValues() {
     const formValues = {};
@@ -22,6 +24,14 @@ export class PopupWithForm extends Popup {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
     });
+  }
+
+  setLoading(isLoading, loadingText = "Guardando...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
   }
 
   close() {

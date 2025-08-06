@@ -20,19 +20,25 @@
       <!-- Perfil -->
       <section class="profile">
         <div class="profile__content">
-          <img
-            class="profile__picture"
-            src="./images/Avatar.png"
-            alt="imagen perfil"
-          />
+          <div class="profile__avatar-area">
+            <img class="profile__picture" src="" alt="imagen perfil" />
+            <button
+              type="button"
+              class="profile__avatar-edit-button"
+              aria-label="Editar avatar"
+            >
+              <img src="./images/editbutton.png" alt="Editar avatar" />
+            </button>
+          </div>
+
           <div class="profile__info">
             <div class="profile__edit">
-              <h2 class="profile__info-name">Jacques Cousteau</h2>
+              <h2 class="profile__info-name"></h2>
               <button class="profile__edit-button" type="button">
                 <img alt="edit button" src="./images/editbutton.png" />
               </button>
             </div>
-            <h3 class="profile__info-career">Explorador</h3>
+            <h3 class="profile__info-career"></h3>
           </div>
 
           <div class="profile__add">
@@ -90,7 +96,12 @@
               id="inputprofesion-error"
             ></span>
 
-            <button class="popup__button" type="submit" id="save" disabled>
+            <button
+              class="popup__submit-button"
+              type="submit"
+              id="save"
+              disabled
+            >
               Guardar
             </button>
           </form>
@@ -121,13 +132,67 @@
             />
             <span class="popup__input_type_error" id="inputtitle-error"></span>
 
-            <input type="url" placeholder="Enlace a la imagen"
-            class="popup__input popup__input--url" id="inputlink"
-            name="inputlink required />
+            <input
+              type="url"
+              placeholder="Enlace a la imagen"
+              class="popup__input popup__input--url"
+              id="inputlink"
+              name="inputlink"
+              required
+            />
             <span class="popup__input_type_error" id="inputlink-error"></span>
-            <button class="popup__button" type="submit" id="create" disabled>
+            <button
+              class="popup__submit-button"
+              type="submit"
+              id="create"
+              disabled
+            >
               Crear
             </button>
+          </form>
+        </div>
+      </div>
+      <!-- Popup de confirmación -->
+      <div class="popup popup_type_confirm" id="popup-confirm">
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__exit"
+            id="popup-profile-close-button"
+          >
+            X
+          </button>
+          <button class="popup__exit" type="button"></button>
+          <h2 class="popup__title">¿Estás seguro?</h2>
+          <form class="popup__form" name="confirm-form">
+            <button class="popup__submit-button" type="submit">Sí</button>
+          </form>
+        </div>
+      </div>
+
+      <!--Popup de cambiar el avatar-->
+
+      <div class="popup popup_type_avatar" id="popup-avatar">
+        <div class="popup__container">
+          <button
+            type="button"
+            class="popup__exit"
+            id="popup-place-close-button"
+          >
+            X
+          </button>
+          <form class="popup__form" name="avatar-form">
+            <h3 class="popup__title" id="popup-avatar-tittle">
+              Cambiar foto de perfil
+            </h3>
+            <input
+              type="url"
+              name="avatar"
+              class="popup__input"
+              placeholder="Enlace de la imagen"
+              required
+            />
+            <button type="submit" class="popup__submit-button">Guardar</button>
           </form>
         </div>
       </div>
@@ -164,7 +229,6 @@
       </template>
     </section>
 
-    <script type="module" src="./scripts/index.js"></script>
     <script type="module" src="./scripts/FormValidator.js"></script>
     <script type="module" src="./scripts/Card.js"></script>
     <script type="module" src="./scripts/utils.js"></script>
@@ -173,5 +237,6 @@
     <script type="module" src="./scripts/PopupWithImage.js"></script>
     <script type="module" src="./scripts/PopupWithForm.js"></script>
     <script type="module" src="./scripts/UserInfo.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
