@@ -89,6 +89,15 @@ Modularidad: Cada clase se define en su propio módulo, facilitando la organizac
 
 Callbacks: Se utilizan funciones callback para manejar eventos personalizados, como el envío de formularios o la apertura de imágenes, permitiendo una interacción flexible entre objetos.
 
+### Funcionalidades implementadas
+
+- Se creó una clase `PopupWithForm` que maneja formularios en popups reutilizables.
+- Se agregó funcionalidad para mostrar un estado de carga (`"Guardando..."`) mientras se envía el formulario.
+- Se instanciaron correctamente los formularios para editar perfil, agregar tarjetas, editar avatar y confirmar acciones.
+- Se corrigió el error al acceder a botones de submit asegurando que todos tengan la clase `.popup__submit-button`.
+- Se mejoró la experiencia de usuario mostrando estados de carga y cerrando formularios al finalizar las peticiones.
+- Se creó un archivo `.gitignore` para excluir `node_modules` y otros archivos innecesarios del repositorio.
+
 ##Autores
 
 Paola Gomez
